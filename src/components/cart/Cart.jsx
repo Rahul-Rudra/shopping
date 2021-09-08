@@ -5,7 +5,7 @@ import CartColumns from "./CartColumns";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
 import EmptyCart from "./EmptyCart";
-export default function Cart() {
+export default function Cart(props) {
   const data = useContext(ProductContext);
   const { cart } = data;
 
@@ -17,7 +17,7 @@ export default function Cart() {
             <Title name="your" title="cart" />
             <CartColumns />
             <CartList data={data} />
-            <CartTotals value={data} />
+            <CartTotals value={data} history={props.history} />
           </>
         ) : (
           <EmptyCart />

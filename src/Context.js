@@ -51,6 +51,18 @@ function ProductProvider(props) {
   };
 
   useEffect(() => {
+    const addTotals = () => {
+      let subtotal = 0;
+      cart && cart.map((item) => (subtotal += item.total));
+      const tempTax = subtotal * 0.1;
+      const tax = parseFloat(tempTax.toFixed(2));
+      const total = subtotal + tax;
+      setCartData({
+        cartSubTotal: subtotal,
+        cartTax: tax,
+        cartTotal: total,
+      });
+    };
     addTotals();
   }, [cart]);
 
@@ -79,15 +91,13 @@ function ProductProvider(props) {
     const index = tempCart.indexOf(selectedProduct);
     const product = tempCart[index];
     product.count -= 1;
-    if(product.count===0){
+    if (product.count === 0) {
       removeItem(id);
-    }
-    else{
+    } else {
       product.total = product.price * product.count;
       setCart([...tempCart]);
-  
     }
-      };
+  };
 
   const removeItem = (id) => {
     let tempProducts = [...products];
@@ -107,18 +117,18 @@ function ProductProvider(props) {
     handleProducts();
   };
 
-  const addTotals = () => {
-    let subtotal = 0;
-    cart && cart.map((item) => (subtotal += item.total));
-    const tempTax = subtotal * 0.1;
-    const tax = parseFloat(tempTax.toFixed(2));
-    const total = subtotal + tax;
-    setCartData({
-      cartSubTotal: subtotal,
-      cartTax: tax,
-      cartTotal: total,
-    });
-  };
+  // const addTotals = () => {
+  //   let subtotal = 0;
+  //   cart && cart.map((item) => (subtotal += item.total));
+  //   const tempTax = subtotal * 0.1;
+  //   const tax = parseFloat(tempTax.toFixed(2));
+  //   const total = subtotal + tax;
+  //   setCartData({
+  //     cartSubTotal: subtotal,
+  //     cartTax: tax,
+  //     cartTotal: total,
+  //   });
+  // };
   return (
     <>
       <ProductContext.Provider

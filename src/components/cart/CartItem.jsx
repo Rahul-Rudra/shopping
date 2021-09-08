@@ -1,7 +1,7 @@
 import React from "react";
 
 function CartItem({ value, item }) {
-  const { id, price, img, info, total, count, title } = item;
+  const { id, price, img, total, count, title } = item;
   const { increment, decrement, removeItem } = value;
 
   return (
