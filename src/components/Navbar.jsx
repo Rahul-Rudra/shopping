@@ -22,11 +22,14 @@ export default function Navbar() {
         </ul>
         <Link to="/store" className="ml-auto">
           <ButtonContainer>
-            <span className="m-2">
+            <span className="m-3">
               <i className="fas fa-cart-plus" />
             </span>
             my cart{" "}
-            <span style={{ color: "red" }}>
+            <span
+              className={cart.length > 0 ? "icon_number" : ""}
+              style={{ color: "black" }}
+            >
               {" " + cart.length > 0 ? cart.length : ""}
             </span>
           </ButtonContainer>

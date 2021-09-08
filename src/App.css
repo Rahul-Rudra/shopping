@@ -47,6 +47,18 @@ body{
 .row{
   margin-bottom: 32px;
 }
+.icon_number{
+  position: absolute;
+  top: 13px;
+  right: 118px;
+  background:	#FFA500;
+  width:25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
 
 /* #ex4 .p1[data-count]:after{
   position:absolute;
