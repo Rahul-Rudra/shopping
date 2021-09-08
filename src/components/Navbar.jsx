@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../logo.svg";
 import { ButtonContainer } from "./Button";
 import styled from "styled-components";
+import { ProductContext } from "../Context";
 export default function Navbar() {
+  const data = useContext(ProductContext);
+  const { cart } = data;
   return (
     <>
       <NavWrapper className="navbar navbar-expand-sm  navbar-dark px-sm-5">
@@ -22,7 +25,10 @@ export default function Navbar() {
             <span className="m-2">
               <i className="fas fa-cart-plus" />
             </span>
-            my cart
+            my cart{" "}
+            <span style={{ color: "red" }}>
+              {" " + cart.length > 0 ? cart.length : ""}
+            </span>
           </ButtonContainer>
         </Link>
       </NavWrapper>

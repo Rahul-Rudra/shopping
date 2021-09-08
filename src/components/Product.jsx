@@ -89,6 +89,7 @@ export default function Product({ product }) {
           </h5>
         </div>
       </div>
+      
     </Wrapper>
   );
 }
